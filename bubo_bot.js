@@ -19,6 +19,7 @@ var runtimeOptions = {
   jiraUsername: process.env.JIRA_USERNAME || config.jiraUsername,
   jiraPassword: process.env.JIRA_PASSWORD || config.jiraPassword
 };
+runtimeOptions.hipchatIgnoredUsers = process.env.HIPCHAT_IGNORED_USERS ? process.env.HIPCHAT_IGNORED_USERS.split(',') : config.hipchatIgnoredUsers;
 runtimeOptions.hipchatRoomsToJoin = process.env.HIPCHAT_ROOMS_TO_JOIN ? process.env.HIPCHAT_ROOMS_TO_JOIN.split(',') : config.hipchatRoomsToJoin;
 runtimeOptions.jiraProjectRe = process.env.JIRA_PROJECT_RE ? new RegExp(process.env.JIRA_PROJECT_RE, "g") : config.jiraProjectRe;
 
@@ -55,7 +56,7 @@ b.onMessage(function(channel, from, message) {
 
   console.log(' -=- > Looking up JIRA details for ' + message + ' with matches: ' + matches + ' [from ' + from + ']');
   matches.forEach(function(jiraKey) { 
-    if (alreadyProcessed.indexOf(jiraKey) < 0) {
+    if (alreadyProcessed.indexOf(jiraKey) < 0 && runtimeOptions.hipchatIgnoredUsers.indexOf(from) < 0) {
       alreadyProcessed.push(jiraKey);
       var options = {
         auth: runtimeOptions.jiraUsername + ':' + runtimeOptions.jiraPassword,

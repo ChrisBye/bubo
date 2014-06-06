@@ -1,5 +1,6 @@
 /* Keep outside of GitHub! */
 var config = {
+  hipchatIgnoredUsers: [],
   hipchatRoomsToJoin: [' HIPCHAT JABBER ROOM ID@conf.hipchat.com', // see XMPP/Jabber page on your account
                        ' ANOTHER ROOM@conf.hipchat.com',
                        ' THIRD ROOM@conf.hipchat.com'],
