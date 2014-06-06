@@ -53,7 +53,7 @@ b.onMessage(function(channel, from, message) {
     return;
   }
 
-  console.log(' -=- > Looking up JIRA details for ' + message + ' with matches: ' + matches);
+  console.log(' -=- > Looking up JIRA details for ' + message + ' with matches: ' + matches + ' [from ' + from + ']');
   matches.forEach(function(jiraKey) { 
     if (alreadyProcessed.indexOf(jiraKey) < 0) {
       alreadyProcessed.push(jiraKey);
