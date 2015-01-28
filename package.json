@@ -10,7 +10,7 @@
     "url": "git://github.com/safarijv/bubo"
   },
   "dependencies": {
-    "wobot": "git://github.com/uxdiogenes/wobot.git",
+    "wobot": "git://github.com/cjoudrey/wobot.git",
     "jira-api": ">= 0.2.2"
   },
   "main": "bubo_bot.js",
