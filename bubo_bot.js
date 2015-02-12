@@ -77,7 +77,11 @@ b.onMessage(function(channel, from, message) {
         res.on('end', function() {
           try {
             var jiraData = JSON.parse(body);
-            var clarification = runtimeOptions.jiraBrowseUrl + jiraData.key + ' “' + jiraData.fields.summary + '” (' + jiraData.fields.customfield_10995 + ' pts) marked as ' + jiraData.fields.status.name + ' and assigned to ' + jiraData.fields.assignee.displayName;
+            var clarification = runtimeOptions.jiraBrowseUrl 
+              + jiraData.key + ' “' 
+              + jiraData.fields.summary + '” (' 
+              + jiraData.fields.customfield_10995 + ' pts) marked as ' 
+              + jiraData.fields.status.name + ' and assigned to ' + jiraData.fields.assignee ? jiraData.fields.assignee.displayName : "No one";
             self.message(channel, clarification);
           }
           catch (e) {
