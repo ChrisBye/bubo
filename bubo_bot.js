@@ -81,7 +81,7 @@ b.onMessage(function(channel, from, message) {
               + jiraData.key + ' “' 
               + jiraData.fields.summary + '” (' 
               + jiraData.fields.customfield_10995 + ' pts) marked as ' 
-              + jiraData.fields.status.name + ' and assigned to ' + jiraData.fields.assignee ? jiraData.fields.assignee.displayName : "No one";
+              + jiraData.fields.status.name + ' and assigned to ' + (jiraData.fields.assignee && iraData.fields.assignee.displayName ? jiraData.fields.assignee.displayName : "No one" );
             self.message(channel, clarification);
           }
           catch (e) {
