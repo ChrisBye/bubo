@@ -73,7 +73,11 @@ b.onMessage(function(channel, from, message) {
         res.on('data', function(chunk) {
           body += chunk;
         });
-
+console.log(jiraData.fields.assignee )
+console.log( jiraData.fields.assignee.displayName  )
+console.log(jiraData.fields.assignee.displayName )
+console.log("Nobody" )
+           
         res.on('end', function() {
           try {
             var jiraData = JSON.parse(body);
@@ -81,7 +85,7 @@ b.onMessage(function(channel, from, message) {
               + jiraData.key + ' “' 
               + jiraData.fields.summary + '” (' 
               + jiraData.fields.customfield_10995 + ' pts) marked as ' 
-              + jiraData.fields.status.name + ' and assigned to ' + (jiraData.fields.assignee && iraData.fields.assignee.displayName ? jiraData.fields.assignee.displayName : "No one" );
+              + jiraData.fields.status.name + ' and assigned to ' + (jiraData.fields.assignee && jiraData.fields.assignee.displayName ? jiraData.fields.assignee.displayName : "Nobody" );
             self.message(channel, clarification);
           }
           catch (e) {
