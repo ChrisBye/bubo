@@ -10,7 +10,7 @@ var jira = require('jira-api');
 var wobot = require('wobot');
 
 
-// Pull this in now to allow either file-based config (checked second) or environment variables (checked first)
+// Pull this in now to allow either file-based config (checked second) or environment variables (checked first) 
 var runtimeOptions = {
   hipchatUser: process.env.HIPCHAT_USER || config.hipchatUser,
   hipchatPassword: process.env.HIPCHAT_PASSWORD || config.hipchatPassword,
