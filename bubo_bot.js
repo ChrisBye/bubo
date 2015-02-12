@@ -73,14 +73,14 @@ b.onMessage(function(channel, from, message) {
         res.on('data', function(chunk) {
           body += chunk;
         });
-console.log(jiraData.fields.assignee )
-console.log( jiraData.fields.assignee.displayName  )
-console.log(jiraData.fields.assignee.displayName )
-console.log("Nobody" )
            
         res.on('end', function() {
           try {
             var jiraData = JSON.parse(body);
+console.log(jiraData.fields.assignee )
+console.log( jiraData.fields.assignee.displayName  )
+console.log(jiraData.fields.assignee.displayName )
+console.log("Nobody" )
             var clarification = runtimeOptions.jiraBrowseUrl 
               + jiraData.key + ' “' 
               + jiraData.fields.summary + '” (' 
