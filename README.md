@@ -58,3 +58,4 @@ Typical output:
 Heroku:
 
 To run on Heroku, do the normal (?) things but set the environment variables with `config:add` instead of config.js.
+do something
